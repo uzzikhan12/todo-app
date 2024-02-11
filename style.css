@@ -1,0 +1,50 @@
+body{
+    background-color: lightgray;
+}
+
+.headDiv{
+    height: 35vh;
+    margin-top: -50px;
+    padding-top: 50px;
+    background: linear-gradient(rgb(185, 88, 7),red,brown);
+}
+
+.addBtn{
+    border: none;
+    background-color: rgb(17, 15, 15);
+    color: white;
+    border-radius: 5px;
+    padding: 5px 10px;
+}
+
+.inpClass{
+    width: 50vh;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid black;
+}
+
+.addBtn:hover{
+    background-color:rgb(104, 21, 21);
+    color: white;
+}
+
+#main{
+    margin: auto;
+    margin-top: -50px;
+    border-radius: 5px;
+    width: 70vh;
+    text-align: center;
+    height: 50vh;
+    background-color: white;
+}
+
+#txtContainer{
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    margin-top: -180px;
+    border-radius: 5px;
+    width: 70vh;
+    background-color: white;
+}
