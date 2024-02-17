@@ -54,3 +54,7 @@ function allDlt(element) {
     inp.value = ""; 
 } 
 
+function editPara(element) {
+    var newVal = prompt("Enter your value");
+    element.parentNode.firstChild.nodeValue = newVal;
+}
