@@ -1,60 +1,44 @@
 var inp = document.getElementById("inp");
-var todoTxt = document.getElementById("txtContainer");
+var parent = document.getElementById("parent");
 
-function  addItem() {
-    var para = document.createElement('P');
-    para.innerHTML = inp.value;
-    inp.appendChild(para);
-    todoTxt.appendChild(para);
-
-    para.setAttribute("id","paraID");
-    para.style.backgroundColor = "grey";
-    para.style.padding = "10px";
-    para.style.borderRadius = "5px";
-
-    var btn = document.createElement('BUTTON');
-    btn.setAttribute("onclick","delPara(this)");
-    btn.setAttribute("class","dltBtn");
-    btn.innerHTML = "Delete";
-    
-    btn.style.marginRight = "5px";
-    btn.style.marginLeft = "5px";
-    btn.style.backgroundColor = "white";
-    btn.style.border = "none";
-    btn.style.borderRadius = "5px";
-    
-    para.appendChild(btn);
+function addItem(){
+    var pera = document.createElement('P');
+    pera.setAttribute('class','para');
+    var text = inp.value;
+    var finalText = document.createTextNode(text);
+    pera.appendChild(finalText);
 
     var editBtn = document.createElement('BUTTON');
-    editBtn.setAttribute("onclick","editPara(this)");
-    editBtn.innerHTML = "Edit";
-    editBtn.setAttribute("class","editBtn");
-    
-    editBtn.style.marginRight = "5px";
-    editBtn.style.backgroundColor = "white";
-    editBtn.style.border = "none";
-    editBtn.style.borderRadius = "5px";
-    
-    para.appendChild(editBtn);
+    editBtn.setAttribute('class', 'addBtn');
+    editBtn.setAttribute('onclick', 'editItems(this)');
+    editBtn.innerHTML = '<i class="fas fa-edit"></i>';
+
+    var delBtn = document.createElement("BUTTON");
+    delBtn.setAttribute('class', 'addBtn');
+    delBtn.setAttribute('onclick', 'delItems(this)');
+    delBtn.innerHTML= "<i class='fa fa-trash'></i>";
+
+    var btnParent = document.createElement('DIV');
+    btnParent.appendChild(editBtn);
+    btnParent.appendChild(delBtn);
+    pera.appendChild(btnParent);
+
+    parent.appendChild(pera);
+    console.log(pera);
     inp.value = "";
 }
 
-function delPara(element){
-    var parent = element.parentNode;
-    parent.remove();
+function editItems(e){
+    var edit = e.parentElement.parentElement;
+    var newText = prompt("Enter new text" , edit.firstChild.nodeValue);
+    edit.firstChild.nodeValue = newText;
 }
 
-let dltBtn2 = document.getElementById("dlt");
+function delItems(e){
+    var del = e.parentElement.parentElement;
+    parent.removeChild(del);
+}
 
-function allDlt(element) {
-    let dlt = document.getElementById("paraID");
-    while (todoTxt.firstChild) {
-        todoTxt.removeChild(todoTxt.firstChild);
-      }   
-    inp.value = ""; 
-} 
-
-function editPara(element) {
-    var newVal = prompt("Enter your value");
-    element.parentNode.firstChild.nodeValue = newVal;
+function deleteItems(){
+    parent.innerHTML = "";
 }
